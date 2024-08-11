@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package score_srv;
+option go_package="./score_srv";
+
+message Request {
+  string ping = 1;
+}
+
+message Response {
+  string pong = 1;
+}
+message AddUserScoreRequest{
+  int64 Userid=1;
+  int64 GoodsId=2;
+  int64 Score=3;
+}
+message AddUserScoreResponse{
+  bool success=1;
+}
+
+
+service Score_srv {
+  rpc Ping(Request) returns(Response);
+  rpc AddUserScore(AddUserScoreRequest) returns(AddUserScoreResponse);
+  rpc TranInsScore(AddUserScoreRequest) returns(AddUserScoreResponse);
+  rpc TranDelScore(AddUserScoreRequest) returns(AddUserScoreResponse);
+}

@@ -1,0 +1,18 @@
+Name: wsyx_api-api
+Host: 0.0.0.0
+Port: 8888
+ScoreSrv:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: scoresrv.rpc
+OrderSrv:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: ordersrv.rpc
+GoodsSrv:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: goodssrv.rpc

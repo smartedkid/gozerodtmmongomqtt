@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package order_srv;
+option go_package="./order_srv";
+
+message Request {
+  string ping = 1;
+}
+
+message Response {
+  string pong = 1;
+}
+
+message AddOrderRequest{
+  int64 Userid =1;
+  int64 GoodsId=2;
+  int64 Pay=3;
+  int64 Count=4;
+}
+message AddOrderResponse{
+  bool success=1;
+}
+service Order_srv {
+  rpc Ping(Request) returns(Response);
+  rpc Order(AddOrderRequest) returns(AddOrderResponse);
+  rpc TranInsOrder(AddOrderRequest) returns(AddOrderResponse);
+  rpc TranDelOrder(AddOrderRequest) returns(AddOrderResponse);
+
+}
